@@ -328,7 +328,7 @@ public class CloseDownCheckerImp implements CloseDownChecker {
 	@Override
 	public CorpState CheckCorpNum(String CorpNum) throws CloseDownException {
 		if(CorpNum == null || CorpNum.trim().isEmpty()) {
-			throw new CloseDownException(-17010, "사업자번호가 입력되지 않았습니다.");
+			throw new CloseDownException(-17000000, "사업자번호가 입력되지 않았습니다.");
 		}
 		
 		return  httpget("/Check?CN=" + CorpNum, CorpState.class);
@@ -337,7 +337,7 @@ public class CloseDownCheckerImp implements CloseDownChecker {
 	@Override
 	public CorpState[] CheckCorpNum(String[] CorpNums) throws CloseDownException {
 		if(CorpNums == null || CorpNums.length == 0) {
-			throw new CloseDownException(-17010, "사업자번호가 입력되지 않았습니다.");
+			throw new CloseDownException(-17000001, "사업자번호가 입력되지 않았습니다.");
 		}
 		
 		String postData = new Gson().toJson(CorpNums);
