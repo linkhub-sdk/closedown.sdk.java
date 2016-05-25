@@ -7,5 +7,5 @@ closedown.sdk.java
 		<dependency>
 			<groupId>kr.co.linkhub</groupId>
 			<artifactId>closedown-sdk</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 		</dependency>

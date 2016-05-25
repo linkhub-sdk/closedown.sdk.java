@@ -99,16 +99,27 @@ public class CloseDownCheckerImp implements CloseDownChecker {
 	private String getSessionToken( String ForwardIP)
 			throws CloseDownException {
 	
+
 		boolean expired = true;
 
 		if (token != null) {
+
 			SimpleDateFormat format = new SimpleDateFormat(
 					"yyyy-MM-dd'T'HH:mm:ss.sss'Z'");
 			format.setTimeZone(TimeZone.getTimeZone("UTC"));
+			
+			SimpleDateFormat subFormat = new SimpleDateFormat(
+					"yyyy-MM-dd'T'HH:mm:ss'Z'");
+			subFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+			
 			try {
 				Date expiration = format.parse(token.getExpiration());
-				expired = expiration.before(new Date());
-			} catch (ParseException e) {
+				Date UTCTime = subFormat.parse(getTokenbuilder().getTime());
+				expired = expiration.before(UTCTime);
+				
+			} catch (LinkhubException le){
+				throw new CloseDownException(le);
+			} catch (ParseException e){
 			}
 		}
 
