@@ -105,7 +105,7 @@ public class CloseDownCheckerImp implements CloseDownChecker {
 		if (token != null) {
 
 			SimpleDateFormat format = new SimpleDateFormat(
-					"yyyy-MM-dd'T'HH:mm:ss.sss'Z'");
+					"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 			format.setTimeZone(TimeZone.getTimeZone("UTC"));
 			
 			SimpleDateFormat subFormat = new SimpleDateFormat(
